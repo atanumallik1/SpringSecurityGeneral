@@ -10,6 +10,9 @@
 
 ![](./Diagram1.drawio.svg)
 
+Architecture of Authentication Flow
+![](Diagram2.drawio)
+
 
 ## Authentication 
 * `WbSecurityConfigurerAdapter` is our entry point for all configurations 
