@@ -10,8 +10,9 @@
 
 ![](./Diagram1.drawio.svg)
 
-Architecture of Authentication Flow
-![](Diagram2.drawio)
+
+
+![](./Diagram2.drawio.svg)
 
 
 ## Authentication 
