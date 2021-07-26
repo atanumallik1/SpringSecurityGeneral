@@ -8,7 +8,7 @@
 
 ## Architecture
 
-[My Diagram](Diagram1.drawio.svg)
+![](./Diagram1.drawio.svg)
 
 
 ## Authentication 
