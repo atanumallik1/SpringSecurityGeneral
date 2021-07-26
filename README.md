@@ -8,11 +8,10 @@
 
 
 ## Authentication 
-* `WbSecurityConfigurerAdapter` is out entry point for all configurations 
+* `WbSecurityConfigurerAdapter` is our entry point for all configurations 
 * `AuthenticationManager` class allows applications to configure Authentication Related settings 
-* we need to use `AuthenticationManagerBuilder` to construct `AuthenticationManager`
-Sample code may look like
-````
+* we need to use `AuthenticationManagerBuilder` to construct `AuthenticationManager`. Sample code may look like
+````java
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -23,6 +22,8 @@ Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 		    .withUser("foo")
+            // Note that we are encoding the password
+            // If we do not encode spring will not accept the password
 		    .password(passwordEncoder.encode("foo"))
 		    .roles("USER") ;
 		
@@ -34,3 +35,27 @@ Autowired
 	}
 }
 ````
+
+### PasswordEncoder
+* Spring Security doe not allow us to deal with bare passwords and always recommends to use a  `PasswordEncoder`
+    * You need to pass a `Bean` of type `PasswordEncoder`
+    * You need to encode the password of the bean using the Password Encoder 
+    * In case you do not want to use the encoder (NOT RECOMMENDED) you can try `NoOpPasswordEncoder` which is deprecated now
+    ````java
+
+    @Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+		    .withUser("foo")
+            // Note that we are not encoding the password
+		    .password("foo")
+		    .roles("USER") ;
+		
+	}
+
+    @Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+	}
+
+    ```` 
