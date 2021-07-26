@@ -11,8 +11,27 @@
 ![](./Diagram1.drawio.svg)
 
 
-## Architecture
-![](./Diagram2.drawio.svg)
+## Authentication flow Architecture
+![My Pic](./Diagram2.drawio.svg)
+
+* Step 1: 
+	* `AuthenticationFilter` intercepts the authentication requests. 
+	* It creates the `Authentication` object  and puts `credentials` in it. 
+	* delegates the call to `AuthenticationManager`'s `authenticate( )`method by passing the `authentication` object 
+* Step 2: 
+	* `AuthenticationManager` finds out the right `AuthenticationProvider` using `supports()` method, who can support the requested Authentication type. 
+	* delegates the call to `Authenticationprvider`'s `authenticate()` method and passes teh `authentication` object.
+* Step 3:
+	* `AuthenticationProvider` asks the `UserDetailService` to return the user instance from the system 
+	* once it receives the response `AuthenticationProvider` verifies the user and here authentication happens 
+	* if the authentication is successful , it returns the `Principal` object based on found `UserDetail`
+	* If the authentication is not successful it will trow exception 
+
+	Note: `Authentication` object which is the result of a successful authentication is put in a `ThreadLocal` variable. So that all other classes can read it from there.
+
+	For Remember Me flow  thsi object is put somewhere else via anotehr suitable filter  
+
+
 
 
 ## Authentication 
