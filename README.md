@@ -27,9 +27,12 @@
 	* if the authentication is successful , it returns the `Principal` object based on found `UserDetail`
 	* If the authentication is not successful it will trow exception 
 
-	Note: `Authentication` object which is the result of a successful authentication is put in a `ThreadLocal` variable. So that all other classes can read it from there.
+	**Note:** 
+	* `Authentication` object which is the result of a successful authentication is put in a `ThreadLocal` variable. So that all other classes can read it from there.
 
 	For Remember Me flow  thsi object is put somewhere else via anotehr suitable filter  
+
+	* `AuthenticationContext` holds the `Authentication` object. Before authentication the object contains the `credential` ; after succesful authentication it contains the `Principal` 
 
 
 
