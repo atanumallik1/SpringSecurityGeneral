@@ -17,5 +17,6 @@
 	<description>Spring Security General Purpuse </description>
 	<modules>
 		<module>Template</module>
+		<module>SpringSecCh1</module>
 	</modules>
 </project>

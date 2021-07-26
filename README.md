@@ -6,6 +6,10 @@
 *	https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
 
 
+## Architecture
+
+[My Diagram](Diagram1.drawio.svg)
+
 
 ## Authentication 
 * `WbSecurityConfigurerAdapter` is our entry point for all configurations 
@@ -59,3 +63,6 @@ Autowired
 	}
 
     ```` 
+### Annotations
+#### EnableWebSecurity 
+* To switch off the default web application security configuration completely you can add a bean with @EnableWebSecurity` 
