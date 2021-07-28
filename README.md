@@ -4,7 +4,7 @@
 
 ### Links
 *	https://medium.com/geekculture/spring-security-authentication-process-authentication-flow-behind-the-scenes-d56da63f04fa
-
+*   https://springbootdev.com/2017/08/23/spring-security-authentication-architecture/ 
 
 ## Architecture
 
