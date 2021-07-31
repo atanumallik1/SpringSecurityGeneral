@@ -45,12 +45,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		
 		
-		// We need to enable following settings to access teh H2 DB console 
+		// We need to enable following settings to access the H2 DB console 
 		// Following configurations are done on the HTTP level 
 		// We are also registering a WenServlet of H2 DB in the WebConfiguration 
 		// class
-//		http.authorizeRequests()
-//			    .antMatchers("/console/**").permitAll();
 		
 		
 		http.authorizeRequests()

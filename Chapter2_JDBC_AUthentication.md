@@ -11,7 +11,8 @@ Java Brains https://www.youtube.com/watch?v=LKvrFltAgCQ&list=PLqq-6Pq4lTTYTEooak
 ## Where Does it stand Spring Security Big Picture 
 
 ### Pre-read
-https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication   
+* https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication   
+* https://www.baeldung.com/spring-security-jdbc-authentication
 
 ![BigPicture](diagrams/ch2/bigpic.png)
 
@@ -89,3 +90,66 @@ By doing so this much we have implemeted JDBC In Memory persistance based + Form
  No explicit property is nedeed for the default settings. 
 
 ## Details into storage 
+* We are using in Memory DB ; so we everytime we restart teh data related to user Details are lost 
+* In thid context we nees 2 tables to store the `UserDetails`
+    * AUTHORITIES
+        * USERNAME
+        * AUTHORITY
+    * USERS
+        * USERNAME
+        * PASSWORD
+        * ENABLED
+* These schemas are well defined in Spring , and the autowired datasource will contain these tables. Schema details can be found at  https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-jdbc-schema  
+
+* We are not using any User Default service; the users are created statically by the above method 
+* This approach is not good for real productive apps
+
+We want to look into the Default H2 Data base. For that we need to do following steps 
+### Application Properties 
+We need to set some configurations specific to H2
+
+````properties 
+spring.datasource.url=jdbc:h2:mem:testdb
+#spring.datasource.url=jdbc:h2:file:/data/demo
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+
+#H2 Console specific Settings
+spring.h2.console.enabled=true
+spring.h2.console.settings.trace=true
+spring.h2.console.settings.web-allow-others=false
+
+```` 
+Following points to note
+* the url for in memory datasource `jdbc:h2:mem:testdb` ; there is a different url for persistent database
+* username and password are the DB admin credential 
+* we are enabling the default H2 DB console ; using this endpoint we can look into the DB
+
+### Configurations
+Following ocnfigurations need to be done in `ApplicationSecurityConfig`which extends `WebSecurityConfigurerAdapter` which will make the H2 DB Admin Endpoint accessible 
+````java
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+    
+    	http.authorizeRequests()
+	    .antMatchers("/h2-console/**").permitAll();
+		
+		http.csrf().ignoringAntMatchers("/console/**", "/h2-console/**");
+	    http.headers().frameOptions().disable();	 
+
+    
+    }
+````
+
+You can access the H2 DB using http://localhost:8080/h2-console/
+Here you can enter the credentials mentioned in the properties to explore the data
+
+
+# References 
+1. Bealdung https://www.baeldung.com/spring-security-jdbc-authentication 
+2. BEaldung https://www.baeldung.com/spring-boot-h2-database 
+3. https://www.javadevjournal.com/spring-security/spring-security-authentication/
+3. https://springbootdev.com/2017/08/23/spring-security-authentication-architecture/ 
