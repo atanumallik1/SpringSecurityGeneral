@@ -1,0 +1,21 @@
+INSERT INTO MY_USERS (
+                         username,
+                         password,
+                         enabled
+                     )
+                     VALUES (
+                         'admin',
+                         'pass',
+                         true
+                     );
+                     
+INSERT INTO MY_USERS (
+                         username,
+                         password,
+                         enabled
+                     )
+                     VALUES (
+                         'user',
+                         'pass',
+                         true
+                     );                     

@@ -1,0 +1,16 @@
+INSERT INTO MY_AUTHORITIES (
+                               username,
+                               authority
+                           )
+                           VALUES (
+                               'admin',
+                               'ADMIN'
+                           )
+INSERT INTO MY_AUTHORITIES (
+                               username,
+                               authority
+                           )
+                           VALUES (
+                               'user',
+                               'USER'
+                           );
