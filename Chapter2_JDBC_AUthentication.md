@@ -145,7 +145,8 @@ Following ocnfigurations need to be done in `ApplicationSecurityConfig`which ext
 ````
 
 You can access the H2 DB using http://localhost:8080/h2-console/
-Here you can enter the credentials mentioned in the properties to explore the data
+Here you can enter the credentials mentioned in the properties to explore the data. It would look 
+![image](https://user-images.githubusercontent.com/8110582/127743276-00868acb-d384-4fb4-a224-159993cd49ad.png)
 
 
 # References 
