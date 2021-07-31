@@ -25,7 +25,7 @@ https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servle
     * Remember Me
     * Preauthorize
     * [x] _**Username / Password based**_  
-* Username / PAssword based <br>
+* [x] Username / PAssword based <br>
 Following aspects are to be considered 
     * Reading Username / Pass
         *  [x] _**Form based**_
