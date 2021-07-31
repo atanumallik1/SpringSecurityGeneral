@@ -41,9 +41,23 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		// satisfies it does not go to the next ones
 		http.authorizeRequests()
 		        .antMatchers("/admin").hasRole("ADMIN")
-		        .antMatchers("/user").hasAnyRole("ADMIN","USER")
-				.antMatchers("/").permitAll()
-				.and().formLogin();
+		        .antMatchers("/user").hasAnyRole("USER").and().formLogin() ;
+		
+		
+		
+		// We need to enable following settings to access teh H2 DB console 
+		// Following configurations are done on the HTTP level 
+		// We are also registering a WenServlet of H2 DB in the WebConfiguration 
+		// class
+//		http.authorizeRequests()
+//			    .antMatchers("/console/**").permitAll();
+		
+		
+		http.authorizeRequests()
+	    .antMatchers("/h2-console/**").permitAll();
+		
+		http.csrf().ignoringAntMatchers("/console/**", "/h2-console/**");
+	    http.headers().frameOptions().disable();	 
 
 	}
 
