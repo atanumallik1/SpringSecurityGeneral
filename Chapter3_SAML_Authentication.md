@@ -15,5 +15,7 @@ The service provider, which already knows the identity provider and has a certif
 The identity of the user is established and the user is provided with app access.
 
 
+https://blog.joshsoftware.com/2020/04/22/single-sign-on-with-saml-and-spring-boot/
+
 # Reference 
 https://www.onelogin.com/learn/saml 
