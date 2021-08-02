@@ -17,6 +17,7 @@ The identity of the user is established and the user is provided with app access
 
 https://blog.joshsoftware.com/2020/04/22/single-sign-on-with-saml-and-spring-boot/
 https://developer.okta.com/blog/2020/10/14/spring-security-saml-database-authentication
+https://github.com/atanumallik1/SpringSecurityGeneral/blob/Autentication-Chapter1/Chapter3_SAML_Authentication.md
 
 # Reference 
 https://www.onelogin.com/learn/saml 
