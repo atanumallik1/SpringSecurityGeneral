@@ -21,3 +21,25 @@ https://github.com/atanumallik1/SpringSecurityGeneral/blob/Autentication-Chapter
 
 # Reference 
 https://www.onelogin.com/learn/saml 
+
+# Springboot SAML
+https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2login-sp-initiated-factory
+https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/saml2-login 
+https://codetinkering.com/spring-security-saml2-service-provider-example/
+https://www.youtube.com/watch?v=kBaitgdcNWo
+https://www.youtube.com/watch?v=ATdCwJXMsAQ
+
+
+# SAML and SAP IDP
+https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/550251abaf49432bbaa65147b65a1f39.html 
+https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/550251abaf49432bbaa65147b65a1f39.html
+https://blogs.sap.com/2021/04/15/sap-business-technology-platform-security-hands-on-video-tutorials-3/  -----> ***
+https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/d17a116432d24470930ebea41977a888.html ----> *
+https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/d483a52be22946d5a05951b0fa16221f.html ---> *
+https://blogs.sap.com/2021/06/29/configure-single-sign-on-with-okta-sap-btp-launchpad-service-on-cloud-foundry/ --->*
+https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/a4ee70f0274248f8bbc7594179ef948d.html
+
+
+# Google Identity
+https://www.youtube.com/watch?v=ny92vcpOQFs
+
