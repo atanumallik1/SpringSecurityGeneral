@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: SpringSecurityGeneral.Template.TemplateApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.525 s - in SpringSecurityGeneral.Template.TemplateApplicationTests
