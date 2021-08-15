@@ -20,7 +20,7 @@ https://developer.okta.com/blog/2020/10/14/spring-security-saml-database-authent
 https://github.com/atanumallik1/SpringSecurityGeneral/blob/Autentication-Chapter1/Chapter3_SAML_Authentication.md
 
 # Reference 
-https://www.onelogin.com/learn/saml 
+https://www.onelogin.com/learn/saml  
 
 # Springboot SAML
 https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-saml2login-sp-initiated-factory
