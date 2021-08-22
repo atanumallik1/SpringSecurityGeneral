@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-    <groupId>SpringSecurityGeneral</groupId>
-    <artifactId>SpringSecurityGeneral</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  
-  
+		<groupId>SpringSecurityGeneral</groupId>
+		<artifactId>SpringSecurityGeneral</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+
 	<artifactId>SpringSecCh3</artifactId>
 	<name>SpringSecCh3</name>
 
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>mavencentral</id> -->
+	<!-- <layout>default</layout> -->
+	<!-- <url>https://repo1.maven.org/maven2/</url> -->
+	<!-- </repository> -->
+	<!-- </repositories> -->
 
 	<description>SpringBoot with SAML</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,6 +35,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- Saml Core Dependency -->
+		<dependency>
+			<groupId>org.springframework.security.extensions</groupId>
+			<artifactId>spring-security-saml2-core</artifactId>
+			<version>1.0.10.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security.extensions</groupId>
+			<artifactId>spring-security-saml-dsl-core</artifactId>
+			<version>1.0.5.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -44,6 +66,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

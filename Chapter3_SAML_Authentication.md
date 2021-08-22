@@ -15,6 +15,26 @@ The service provider, which already knows the identity provider and has a certif
 The identity of the user is established and the user is provided with app access.
 
 
+# The Big Picture
+Security Assertion Markup Language (SAML) is an open standard that allows an IdP to securely send the user's authentication and authorization details to the Service Provider (SP). It uses XML-based messages for the communication between the IdP and the SP.
+
+In other words, when a user attempts to access a service, he's required to log in with the IdP. Once logged in, the IdP sends the SAML attributes with authorization and authentication details in the XML format to the SP.
+
+Apart from providing a secured authentication-transmission mechanism, SAML also promotes Single Sign-On (SSO), allowing users to log in once and reuse the same credentials to log into other service providers.
+
+
+
+
+# OCTA IDP with SAML setup 
+https://www.baeldung.com/spring-security-saml 
+
+https://github.com/rchand-git/spring-boot-saml 
+https://developer.okta.com/blog/2017/03/16/spring-boot-saml
+
+https://medium.com/digital-software-architecture/spring-boot-spring-security-with-saml-2-83d87df5b470  ---> ** 
+
+
+# Further References
 https://blog.joshsoftware.com/2020/04/22/single-sign-on-with-saml-and-spring-boot/
 https://developer.okta.com/blog/2020/10/14/spring-security-saml-database-authentication
 https://github.com/atanumallik1/SpringSecurityGeneral/blob/Autentication-Chapter1/Chapter3_SAML_Authentication.md
