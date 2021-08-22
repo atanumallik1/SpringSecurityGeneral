@@ -1,0 +1,9 @@
+---
+version: 1
+applications:
+- name: SpringSecCh1
+  memory: 1024M
+  instances: 1
+  path: target/SpringSecCh1-0.0.1-SNAPSHOT.jar
+---  buildpacks:
+---    - sap_java_buildpack_1_37

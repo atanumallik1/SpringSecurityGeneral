@@ -19,5 +19,6 @@
 		<module>Template</module>
 		<module>SpringSecCh1</module>
 		<module>SpringSecCh2</module>
+		<module>SpringSecCh3</module>
 	</modules>
 </project>
