@@ -1,26 +1,70 @@
+# Introduction to SAML
+Reference : https://www.okta.com/blog/2020/09/what-is-saml/
+
+SAML stands for Security Assertion Markup Language, an open standard that passes authorization credentials from identity providers (IdPs) to service providers (SPs). Put simply, it enables secure communication between applications and allows users to gain access with a single set of credentials.
+
+## Actors in SAML
+In order for SAML to work, there needs to be an identity provider and a service provider: 
+* __Identity providers (IDP) authenticate users:__  These systems are responsible for confirming that a user is who they say are, and then sending that data (and the user’s access rights) to a service provider. Okta, Microsoft Active Directory (AD), and Microsoft Azure are all examples of identity providers.
+<br>
+Sometimes it is also called __asserting party__
+
+* __Service providers (SP) authorize users:__ These systems use the authentication data from an identity provider to grant access to a service. Examples include Salesforce, Box, and other best-of-breed technology. 
+<br>
+Sometimes it is also called __relying party__
+
 SAML SSO works by transferring the user’s identity from one place (the identity provider) to another (the service provider). This is done through an exchange of digitally signed XML documents.
 
-Consider the following scenario: A user is logged into a system that acts as an identity provider. The user wants to log in to a remote application, such as a support or accounting application (the service provider). The following happens:
+## What SAML is used for 
+SAML completely changes how users sign in to services or websites, and is intended to simplify __federated authentication and authorization processes__ for all parties: identity providers, services providers, and end users. 
 
-The user accesses the remote application using a link on an intranet, a bookmark, or similar and the application loads.
+Instead of requesting credentials such as a username and password for every login attempt, SAML can help verify that a user is who they say they are and confirm permission levels to either grant or deny access. In addition, SAML allows identity providers and service providers to exist separately, which helps organizations to centralize user management—and provide access to various software solutions.
 
-The application identifies the user’s origin (by application subdomain, user IP address, or similar) and redirects the user back to the identity provider, asking for authentication. This is the authentication request.
+SAML is most frequently used to enable single sign-on __(SSO)__, which authenticates accredited users between an identity provider and a service provider. Organizations that deploy SAML-configured applications, for example, can enable their employees to use just one set of credentials to log in to a single dashboard that gives them direct access to all of their productivity and communication tools.
 
-The user either has an existing active browser session with the identity provider or establishes one by logging into the identity provider.
+## How SAML works
+SAML uses Extensible Markup Language (XML) to communicate between the identity provider and service provider. This takes the form of a SAML assertion, a type of XML document that an identity provider sends to a service provider to authorize a user. 
 
-The identity provider builds the authentication response in the form of an XML-document containing the user’s username or email address, signs it using an X.509 certificate, and posts this information to the service provider.
+There are three types of SAML assertions:
 
-The service provider, which already knows the identity provider and has a certificate fingerprint, retrieves the authentication response and validates it using the certificate fingerprint.
+* __Authentication assertions__ prove a user’s identity, and provide the time that they logged in as well as the authentication protocol they used (e.g., Kerberos, multi-factor authentication). 
+* __Attribution assertions__ pass SAML attributes—the pieces of data that provide information about the user—to the service provider.
+* __Authorization assertions__ confirm whether the user is authorized to use a service—and what degree of authorization they have—or if the identity provider denied their request due to a password failure or lack of access rights.
+To recap, SAML works by passing information about users, their logins, and their attributes between an identity provider and a service provider. When a user logs in using SSO, for example, the IdP will pass SAML attributes to the SP—ensuring the user only needs to log in once. 
 
-The identity of the user is established and the user is provided with app access.
 
+## Types of Flows supported by SAML
 
-# The Big Picture
-Security Assertion Markup Language (SAML) is an open standard that allows an IdP to securely send the user's authentication and authorization details to the Service Provider (SP). It uses XML-based messages for the communication between the IdP and the SP.
+* __Service provider-initiated SAML flow__
+This occurs when a user attempts to sign in to a SAML-enabled service via its login page or mobile app. Rather than asking the user to log in, the service redirects the user to their identity provider to handle the authentication. If their identity is confirmed, they will be granted access to the site or app.
+* __Identity provider-initiated SAML flow__ This flow occurs when a user logs in to the identity provider and launches a service application from their database. If they already have an account with the service provider, they will automatically gain access. If not, then some identity providers can use SAML to create a new, authenticated account for that service.
 
-In other words, when a user attempts to access a service, he's required to log in with the IdP. Once logged in, the IdP sends the SAML attributes with authorization and authentication details in the XML format to the SP.
+# Benefits of SAML
+* Improved user experiences
+* Fewer lost credentials
+* Greater security
+* Reduced costs
+* Simplified user management
 
-Apart from providing a secured authentication-transmission mechanism, SAML also promotes Single Sign-On (SSO), allowing users to log in once and reuse the same credentials to log into other service providers.
+# Alternate to SAML
+While SAML offers a number of benefits in terms of identity federation, there are alternative standards available that help businesses and services to securely manage and approve user identities.
+
+* __OpenID:__ OpenID is an open source identity standard that enables users to access multiple websites and apps without sharing additional sign-in information. If you’ve ever logged in to a website using your Google, YouTube, or Facebook credentials, you’ve experienced OpenID.
+
+* __OAuth:__ OAuth (or OpenAuth, if you want to use the full name) is a standard that was jointly developed by Google and Twitter to enable streamlined logins between websites. It’s similar to SAML in how it shares information between applications (Facebook and Google are two OAuth providers that you’ve likely used before). However, it differs by using JSON tokens to authenticate users, and as a result, is more appropriate for mobile. 
+
+## Federated Identity 
+reference https://developer.okta.com/docs/concepts/saml/#authentication 
+
+Federated Identity started with the need to support application access that spans beyond a company or organization boundary. Imagine a relationship between a juice company (JuiceCo) selling its product to a large supermarket chain (BigMart). As an employee of JuiceCo, you need to access an application provided by BigMart to manage the relationship and monitor supplies and sales.
+
+In this case, BigMart (who is providing this application) will need to take care of user authentication. The simple way is to require a different user name and password from users working at JuiceCo. But think about all the users that this application will need to maintain - including all of the other suppliers and their users who need to access the application.
+
+A more elegant way to solve this problem is to allow JuiceCo and every other supplier to share or "federate" the identities with BigMart. As an employee of JuiceCo, you already have a corporate identity and credentials. What Federated Identity provides is a secure way for the supermarket chain (Service Provider) to externalize authentication by integrating with the existing identity infrastructure of its suppliers (Identity Provider).
+
+## SAML Flow
+SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
+![image](diagrams\samlsimple.png)
 
 
 
@@ -32,6 +76,9 @@ https://github.com/rchand-git/spring-boot-saml
 https://developer.okta.com/blog/2017/03/16/spring-boot-saml
 
 https://medium.com/digital-software-architecture/spring-boot-spring-security-with-saml-2-83d87df5b470  ---> ** 
+http://www.canchito-dev.com/public/blog/2020/11/22/spring-security-with-saml2-and-okta/ --> **
+
+https://github.com/spring-projects/spring-security-samples/tree/5.5.x/servlet/spring-boot/java/saml2-login --> **
 
 
 # Further References
