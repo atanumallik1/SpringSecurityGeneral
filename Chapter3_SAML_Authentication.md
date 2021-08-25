@@ -64,7 +64,7 @@ A more elegant way to solve this problem is to allow JuiceCo and every other sup
 
 ## SAML Flow
 SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
-![image](diagrams\samlsimple.png)
+![image](diagrams/samlsimple.png)
 
 
 
